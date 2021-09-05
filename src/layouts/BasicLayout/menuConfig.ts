@@ -50,6 +50,10 @@ const asideMenuConfig = [
         path: '/seller/404',
         name: '商家 404',
       },
+      {
+        path: '/seller/member-list',
+        name: '会员管理',
+      },
     ],
   },
   {

@@ -58,7 +58,7 @@ const appConfig: IAppConfig = {
       request: {
         onConfig: (req) => {
           // 发送请求前：可以对 RequestConfig 做一些统一处理
-          req.headers = { appName: config.appName };
+          req.headers = { 'app-name': config.appName };
           return req;
         },
         onError: (error) => {
