@@ -1,5 +1,5 @@
-import { runApp, IAppConfig } from 'ice';
-import { ConfigProvider } from '@alifd/next';
+import { runApp, IAppConfig, config } from 'ice';
+import { ConfigProvider, Message } from '@alifd/next';
 import PageLoading from '@/components/PageLoading';
 import FrameworkLayout from '@/layouts/FrameworkLayout';
 
@@ -49,6 +49,39 @@ const appConfig: IAppConfig = {
     },
     appRouter: {
       LoadingComponent: PageLoading,
+    },
+  },
+  request: {
+    baseURL: config.baseURL,
+    // 拦截器
+    interceptors: {
+      request: {
+        onConfig: (req) => {
+          // 发送请求前：可以对 RequestConfig 做一些统一处理
+          req.headers = { appName: config.appName };
+          return req;
+        },
+        onError: (error) => {
+          return Promise.reject(error);
+        },
+      },
+      response: {
+        onConfig: (result) => {
+          // 请求成功：可以做全局的 toast 展示，或者对 response 做一些格式化
+          if (result.status !== 200) {
+            Message.error(result.data);
+          }
+          return result;
+        },
+        onError: (error) => {
+          // 请求出错：服务端返回错误状态码
+          // console.log(error.response.data);
+          // console.log(error.response.status);
+          // console.log(error.response.headers);
+          Message.error(error.response?.data);
+          return Promise.reject(error);
+        },
+      },
     },
   },
 };

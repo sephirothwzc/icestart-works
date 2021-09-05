@@ -16,6 +16,10 @@ function loadRuntimeModules(runtime: IRuntime<Function>) {
   );
 
   runtime.loadModule(
+    require('/Users/zhanchao.wu/Documents/赛博星通/source/icestark-works/node_modules/build-plugin-ice-store/lib/runtime.js')
+  );
+
+  runtime.loadModule(
     require('/Users/zhanchao.wu/Documents/赛博星通/source/icestark-works/node_modules/build-plugin-ice-auth/lib/runtime.js')
   );
 

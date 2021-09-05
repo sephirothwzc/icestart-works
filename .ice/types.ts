@@ -7,10 +7,12 @@ import {
 import { IAppRouterProps } from './router/types';
 import { ILogger } from './logger/types';
 import { IRequest } from './request/types';
+import { IStore } from './store/types';
 import { IAuth } from './auth/types';
 import { IIceStark } from './types/icestark';
 
 export * from './router/types';
+export * from './store/types';
 
 interface IOnTabItemClickParams {
   from: string;
@@ -66,6 +68,7 @@ export interface IAppConfig {
   router?: IAppRouterProps;
   logger?: ILogger;
   request?: IRequest;
+  store?: IStore;
   auth?: IAuth;
   icestark?: IIceStark;
 }

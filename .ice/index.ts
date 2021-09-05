@@ -5,6 +5,8 @@ import { config, APP_MODE } from './config';
 import request from './request/request';
 import useRequest from './request/useRequest';
 import { Helmet } from 'react-helmet';
+import { createStore } from '@ice/store';
+import store from './store/index';
 export * from './auth';
 
 export {
@@ -17,6 +19,8 @@ export {
   Helmet as Head,
   // @deprecated
   Helmet,
+  createStore,
+  store,
 };
 
 export * from './runApp';

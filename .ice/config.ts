@@ -1,4 +1,4 @@
-const userConfig = { default: {} };
+import userConfig from '@/config';
 
 interface Config {
   readonly [propName: string]: any;
